@@ -1,0 +1,248 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scripts/ColorSelecterScreen.gd" type="Script" id=1]
+[ext_resource path="res://graphic/P1.png" type="Texture" id=2]
+[ext_resource path="res://graphic/P2.png" type="Texture" id=3]
+[ext_resource path="res://graphic/player1.png" type="Texture" id=4]
+[ext_resource path="res://graphic/player2.png" type="Texture" id=5]
+[ext_resource path="res://graphic/playerGreen.png" type="Texture" id=6]
+[ext_resource path="res://graphic/playerPink.png" type="Texture" id=7]
+[ext_resource path="res://graphic/ButtonPlay.png" type="Texture" id=8]
+[ext_resource path="res://graphic/ButtonPlayHover.png" type="Texture" id=9]
+[ext_resource path="res://graphic/ButtonPlayPressed.png" type="Texture" id=10]
+[ext_resource path="res://graphic/ShipSelect.png" type="Texture" id=11]
+[ext_resource path="res://graphic/BackButton.png" type="Texture" id=12]
+[ext_resource path="res://graphic/BackButtonHover.png" type="Texture" id=13]
+[ext_resource path="res://graphic/BackButtonPressed.png" type="Texture" id=14]
+[ext_resource path="res://graphic/BackgroundShip.png" type="Texture" id=15]
+[ext_resource path="res://graphic/SkinText.png" type="Texture" id=16]
+[ext_resource path="res://graphic/Lock.png" type="Texture" id=17]
+[ext_resource path="res://font/ArcadeClassic.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Audio/click-button-140881.wav" type="AudioStream" id=19]
+[ext_resource path="res://graphic/Black.png" type="Texture" id=20]
+
+[node name="ColorSelecterScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 360, 536 )
+texture = ExtResource( 15 )
+
+[node name="SelectScreen" type="Sprite" parent="."]
+position = Vector2( 352, 192 )
+texture = ExtResource( 16 )
+
+[node name="Start" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 280.0
+margin_top = 512.0
+margin_right = 440.0
+margin_bottom = 592.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Back" type="TextureButton" parent="."]
+margin_left = 280.0
+margin_top = 608.0
+margin_right = 440.0
+margin_bottom = 688.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 13 )
+
+[node name="Player1Orange" type="Button" parent="."]
+margin_left = -10.0
+margin_top = 438.0
+margin_right = 187.0
+margin_bottom = 638.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player1Green" type="Button" parent="."]
+margin_left = -10.0
+margin_top = 520.0
+margin_right = 187.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player1Purple" type="Button" parent="."]
+margin_left = 70.0
+margin_top = 438.0
+margin_right = 270.0
+margin_bottom = 638.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 5 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player1Pink" type="Button" parent="."]
+margin_left = 70.0
+margin_top = 520.0
+margin_right = 267.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 7 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player2Orange" type="Button" parent="."]
+margin_left = 390.0
+margin_top = 438.0
+margin_right = 590.0
+margin_bottom = 638.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player2Purple" type="Button" parent="."]
+margin_left = 470.0
+margin_top = 438.0
+margin_right = 670.0
+margin_bottom = 638.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 5 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player2Green" type="Button" parent="."]
+margin_left = 390.0
+margin_top = 520.0
+margin_right = 587.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 6 )
+icon_align = 1
+expand_icon = true
+
+[node name="Player2Pink" type="Button" parent="."]
+margin_left = 470.0
+margin_top = 520.0
+margin_right = 667.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 150, 70 )
+icon = ExtResource( 7 )
+icon_align = 1
+expand_icon = true
+
+[node name="P1" type="TextureRect" parent="."]
+margin_left = 120.0
+margin_top = 380.0
+margin_right = 200.0
+margin_bottom = 460.0
+texture = ExtResource( 2 )
+
+[node name="P2" type="TextureRect" parent="."]
+margin_left = 520.0
+margin_top = 380.0
+margin_right = 600.0
+margin_bottom = 460.0
+texture = ExtResource( 3 )
+
+[node name="ShipSelect" type="Sprite" parent="."]
+position = Vector2( -110, 560 )
+texture = ExtResource( 11 )
+
+[node name="ShipSelect2" type="Sprite" parent="."]
+position = Vector2( -110, 560 )
+texture = ExtResource( 11 )
+
+[node name="Lock" type="Sprite" parent="."]
+visible = false
+position = Vector2( 120, 600 )
+texture = ExtResource( 17 )
+
+[node name="Lock2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 200, 600 )
+texture = ExtResource( 17 )
+
+[node name="Lock3" type="Sprite" parent="."]
+visible = false
+position = Vector2( 520, 600 )
+texture = ExtResource( 17 )
+
+[node name="Lock4" type="Sprite" parent="."]
+visible = false
+position = Vector2( 600, 600 )
+texture = ExtResource( 17 )
+
+[node name="PleaseChoose" type="Label" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 363.0
+margin_bottom = 49.0
+rect_scale = Vector2( 1.9, 1.9 )
+custom_fonts/font = ExtResource( 18 )
+text = "Please  choose  a  skin  before  pressing  play"
+align = 1
+
+[node name="ClickSFX1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+
+[node name="ClickSFX2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+
+[node name="ColorSelectSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 340, 360 )
+current = true
+
+[node name="Border1" type="Sprite" parent="."]
+position = Vector2( -2761, 326 )
+scale = Vector2( 10.7852, 9.54688 )
+texture = ExtResource( 20 )
+
+[node name="Border2" type="Sprite" parent="."]
+position = Vector2( 528, 3164 )
+scale = Vector2( 10.7852, 9.54688 )
+texture = ExtResource( 20 )
+
+[node name="Border3" type="Sprite" parent="."]
+position = Vector2( 2080.5, -773.5 )
+scale = Vector2( 5.4668, 5.87695 )
+texture = ExtResource( 20 )
+
+[node name="Border4" type="Sprite" parent="."]
+position = Vector2( 401, -1100.5 )
+scale = Vector2( 1.82031, 4.29883 )
+texture = ExtResource( 20 )
+
+[connection signal="pressed" from="Start" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Player1Orange" to="." method="_on_Player1Orange_pressed"]
+[connection signal="pressed" from="Player1Green" to="." method="_on_Player1Green_pressed"]
+[connection signal="pressed" from="Player1Purple" to="." method="_on_Player1Purple_pressed"]
+[connection signal="pressed" from="Player1Pink" to="." method="_on_Player1Pink_pressed"]
+[connection signal="pressed" from="Player2Orange" to="." method="_on_Player2Orange_pressed"]
+[connection signal="pressed" from="Player2Purple" to="." method="_on_Player2Purple_pressed"]
+[connection signal="pressed" from="Player2Green" to="." method="_on_Player2Green_pressed"]
+[connection signal="pressed" from="Player2Pink" to="." method="_on_Player2Pink_pressed"]
+[connection signal="finished" from="ClickSFX1" to="." method="_on_ClickSFX1_finished"]
+[connection signal="finished" from="ClickSFX2" to="." method="_on_ClickSFX1_finished"]
+[connection signal="finished" from="ClickSFX2" to="." method="_on_ClickSFX2_finished"]
+[connection signal="finished" from="ColorSelectSFX" to="." method="_on_ClickSFX1_finished"]
+[connection signal="finished" from="ColorSelectSFX" to="." method="_on_ClickSFX2_finished"]

@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphic/EnemyHealthBar.png" type="Texture" id=3]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Network.gd" type="Script" id=5]
+[ext_resource path="res://graphic/Background.png" type="Texture" id=6]
+[ext_resource path="res://Audio/8bit-sample-69080.wav" type="AudioStream" id=7]
+[ext_resource path="res://graphic/Black.png" type="Texture" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 96, 64, 0, 64, 0, 0, 96, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "EnemyHealthBar.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 96, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "EnemyHealthBar.png 1"
+1/texture = ExtResource( 3 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 64, 0, 32, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="Level" type="Node2D"]
+position = Vector2( 10, 10 )
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 340, 383 )
+scale = Vector2( 0.824725, 0.672653 )
+texture = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 334, 350 )
+
+[node name="Player1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 110, 550 )
+left = "a"
+right = "d"
+up = "w"
+down = "s"
+shot = "q"
+pNum = 1
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 590, 550 )
+left = "ui_left"
+right = "ui_right"
+up = "ui_up"
+down = "ui_down"
+shot = "ui_select"
+pNum = 2
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="SpawnPosition" type="Position2D" parent="."]
+position = Vector2( -10, -30 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -34, -10 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 80, 80 )
+collision_layer = 2
+collision_mask = 2
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, 65535, 0, 0, 9, 0, 0, 131071, 0, 0, 65545, 0, 0, 196607, 0, 0, 131081, 0, 0, 262143, 0, 0, 196617, 0, 0, 327679, 0, 0, 262153, 0, 0, 393215, 0, 0, 327689, 0, 0, 458751, 0, 0, 393225, 0, 0, 524287, 0, 0, 458761, 0, 0, 589823, 0, 0, 524297, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_left = 0.0147059
+anchor_top = 0.0138889
+anchor_right = 1.01471
+anchor_bottom = 1.01389
+margin_bottom = 6.10352e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="BossTimer" type="Timer" parent="."]
+wait_time = 40.0
+
+[node name="bossSpawn" type="Position2D" parent="."]
+position = Vector2( 342, -74 )
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Border" type="Sprite" parent="."]
+position = Vector2( -1893, 368.5 )
+scale = Vector2( 7.38672, 9.45117 )
+texture = ExtResource( 8 )
+
+[node name="Border2" type="Sprite" parent="."]
+position = Vector2( 2607, 1758.5 )
+scale = Vector2( 10.2148, 4.04883 )
+texture = ExtResource( 8 )
+
+[node name="Border3" type="Sprite" parent="."]
+position = Vector2( 2951.5, -642.5 )
+scale = Vector2( 8.86523, 5.58008 )
+texture = ExtResource( 8 )
+
+[node name="Black" type="Sprite" parent="Border3"]
+position = Vector2( -299.654, -141.485 )
+texture = ExtResource( 8 )
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="BossTimer" to="." method="_on_BossTimer_timeout"]
+[connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]
